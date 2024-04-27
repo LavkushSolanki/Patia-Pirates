@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+  </head>
+  <body>
+    <!-- here i have used this to ensure that wheather the user is logged or not if not logged then it will be shown option to loggin first if looged then will be shown its name -->
+    <div style="float: right">
+      <h1>Want to continue as a seller?</h1>
+      <form id="sellerForm" method="get">
+        <!-- This button will dynamically handle both GET and POST requests -->
+        <button type="button" id="sellerActionButton">Action</button>
+      </form>
+    </div>
+
+    <% if(user.LoggedIn===true) {%>
+    <h1>User: <%= user.Name %></h1>
+    <% } %> <% if(user.LoggedIn===false){ %>
+    <a href="/login">Login</a>
+    <% } %>
+    <br />
+    <br />
+    <br />
+    <br />
+
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut quasi atque
+      laboriosam culpa non nihil voluptatem fugit quae rerum accusamus, eius
+      beatae aspernatur fugiat, ipsum quisquam veniam nam recusandae delectus
+      veritatis eveniet explicabo qui natus labore dolore! Deleniti, veritatis
+      sequi? Fugit omnis dolore delectus nostrum placeat distinctio eos
+      exercitationem consequuntur.
+    </p>
+  </body>
+
+  <!-- here we are using script  for giving single button to handle both post or get according to user wether he is an existing seller or not if he is not a seller then give a registerion form else give him his personal potal -->
+  <script>
+      var isSeller = <%= user.isSeller %>; // Remove 'const' to avoid redeclaration error
+
+    var form = document.getElementById('sellerForm');
+    var actionButton = document.getElementById('sellerActionButton');
+
+    actionButton.addEventListener('click', function() {
+      if (isSeller) {
+        // Update form action for GET request
+        form.setAttribute('action', `/seller/<%= user._id %>`);
+        form.setAttribute('method', 'get');
+      } else {
+        // Update form action for POST request
+        form.setAttribute('action', `/seller/<%= user._id %>/register`);
+        form.setAttribute('method', 'get');
+      }
+
+      // Submit the form
+      form.submit();
+      });
+  </script>
+</html>
