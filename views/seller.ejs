@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Seller</title>
+  <link rel="stylesheet" href="/css/seller.css">
+</head>
+
+<body>
+
+  <!-- subham -->
+
+  <div class="navbar">
+
+    
+    <div class="logo">
+      <img src="\images\features_img\8bd0652cd61571dc49b23441f7af023f.png" alt="" />
+    </div>
+    <div style="position: absolute;">
+      <form action="/seller/<%= seller._id %>/additem" method="get">
+        <button class="button">Add Products</button>
+      </form>
+    </div>
+    <br>
+    <div class="box">
+      <div>
+        <h3><%= seller.name %></h3>
+      </div>
+      <div class="user-icon">
+        <img src="https://cdn1.iconfinder.com/data/icons/elevator/154/elevator-user-man-ui-round-login-1024.png"
+          alt="" />
+      </div>
+    </div>
+  </div>
+  <div style="display: flex; flex-direction: column; gap: 250px">
+    <div>
+
+      <!-- <div>
+        <form action="/seller/<%= seller._id %>/additem" method="get">
+          <button class="button">Add Products</button>
+        </form>
+      </div> -->
+      <div class="Live-products">
+        <h1>Live Products</h1>
+      </div>
+
+
+
+      <div class="container">
+        <% seller.items.forEach(item=> { %>
+        <div class="products">
+            <img src=<%=item.image%> alt="nhi heyyy" srcset="">
+            <h4>
+              <%= item.name %>
+            </h4>
+            <h5>
+              <%= item.description %>
+            </h5>
+            <h2>Rs<%= item.price %>
+            </h2>
+            <hr>
+            <br>
+            <br>
+          </div>
+          <% }); %>
+      </div>
+
+
+      <!-- <div>
+        <form action="/seller/<%= seller._id %>/additem" method="get">
+          <button class="button">Add Products</button>
+        </form>
+      </div> -->
+    </div>
+
+
+  </div>
+
+</body>
+
+</html>

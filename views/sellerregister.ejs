@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Seller Form</title>
+    <link rel="stylesheet" href="/css/sellerregister.css" />
+  </head>
+  <body>
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Details and Image Upload</title>
+        <link rel="stylesheet" href="style.css" />
+      </head>
+      <body>
+        <div class="container">
+          <h1>Seller Registration Form</h1>
+          <form action="/seller/<%= id %>/register" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required /><br />
+
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email" required /><br />
+
+            <label for="adhaar">Adhaar Number:</label>
+            <input type="text" id="adhaar" name="adhaar" required /><br />
+
+            <label for="phone">Phone:</label>
+            <input type="text" id="phone" name="phone" required /><br />
+
+            <label for="address">Address:</label>
+            <input type="address" id="shopname" name="shopname" /><br />
+            <label for="shopname">Shop Name:</label>
+            <input type="text" id="shopname" name="shopname" /><br />
+
+            <!-- Assuming userId is provided by the server and inserted as a hidden field -->
+
+            <input type="submit" value="Submit" />
+            <!-- <button >Submit</button> -->
+          </form>
+        </div>
+      </body>
+    </html>
+

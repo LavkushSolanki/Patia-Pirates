@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Buy Now</title>
+    <link rel="stylesheet" href="/css/buy.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <div class="container">
+      <img src=<%=item.image%> alt="nhi heyyy" srcset="">
+      <div class="product">
+        <h1><%=item.name%></h1>
+        <p><%= item.description%></p>
+        <h2 style="margin-top: 68px;">Price: ₹<%=item.price%></h2>
+        <form action="/purchase/<%= item._id %>" method="get">
+          <button type="submit" class="buy-btn">Buy Now</button>
+        </form>
+        <h5>Share this product with your friends</h5>
+        <div class="fIcons">
+          <a
+            href="https://www.facebook.com/login.php?skip_api_login=1&api_key=966242223397117&signed_next=1&next=https%3A%2F%2Fwww.facebook.com%2Fsharer.php%3Fu%3Dhttp%253A%252F%252Fdl.flipkart.com%252Fdl%252Fzebronics-pixaplay-22-3200-lm-portable-electronic-focus-multi-connectivity-supported-formats-in-built-speaker-dual-band-connectivity-cotton-swab-pack-stunning-720p-hd-smart-projector%252Fp%252Fitm6a77d543b5e99%253Fpid%253DPROGPEHBQETTRE6G%2526cmpid%253Dproduct.share.pp%2526lid%253DLSTPROGPEHBQETTRE6GPUW0LP%26quote%3DI%2B%25E2%2599%25A5%2Bthis%2Bproduct%2Bon%2BFlipkart%2521%26description%3DZEBRONICS%2BPIXAPLAY%2B22%2B%25283200%2Blm%2529%2BPortable%2Bwith%2BElectronic%2BFocus%252C%2BMulti%2BConnectivity%2B%2526%2BSupported%2BFormats%252C%2BIn-built%2BSpeaker%252C%2BDual%2BBand%2BConnectivity%252C%2BCotton%2BSwab%2BPack%2B%252C%2BStunning%2B720p%2BHD%2BSmart%2BProjector&cancel_url=https%3A%2F%2Fwww.facebook.com%2Fdialog%2Fclose_window%2F%3Fapp_id%3D966242223397117%26connect%3D0%23_%3D_&display=popup&locale=en_GB"
+            ><i class="fa-brands fa-facebook"></i
+          ></a>
+          <a href="https://api.whatsapp.com/send?text=[post-title] [post-url]"
+            ><i class="fa-brands fa-whatsapp"></i
+          ></a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

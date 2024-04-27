@@ -1,0 +1,14 @@
+body {
+  font-family: "Lato", sans-serif;
+  padding: 0;
+  margin: 0;
+  background-color: red;
+}
+nav {
+  background-color: rgb(139, 172, 234);
+  color: rgb(255, 54, 94);
+  width: 100vw;
+  height: 13vh;
+  display: flex;
+  align-items: flex-start;
+}

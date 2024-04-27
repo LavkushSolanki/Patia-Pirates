@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/renew.css" />
+  </head>
+  <body style="margin: 0; padding: 0; background-color: antiquewhite">
+    <nav style="margin: 10px 0px">
+      <h2>Renew Artists</h2>
+    </nav>
+    <%if(seller.length==0){%>
+    <h4>No Renew Artists Found</h4>
+    <%}%> <%if(seller.length>0){%> <% seller.forEach(seller => {%>
+    <div id="artists" class="element">
+      <div>
+        <h4>Name: <%=seller.name%></h4>
+        <h5>Location: <%=seller.address%></h5>
+      </div>
+      <div>
+        Contact Info:
+        <h5><%=seller.phone%></h5>
+        <h5><%=seller.email%></h5>
+      </div>
+    </div>
+    <hr />
+    <br />
+    <%}); %> <% } %>
+  </body>
+</html>
