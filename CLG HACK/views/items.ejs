@@ -1,0 +1,82 @@
+<!-- items.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Item Display</title>
+    <style>
+      /* Add your CSS styles here */
+    </style>
+  </head>
+  <body>
+    <input type="text" id="searchBar" placeholder="Search by name" />
+    <div id="root"></div>
+
+    <script>
+      const items = <%= JSON.stringify(items) %>;
+
+      const displayItems = (items) => {
+        const rootElement = document.getElementById('root');
+        rootElement.innerHTML = ''; // Clear previous items
+
+        items.forEach((item) => {
+          const { id, image, title, price } = item;
+
+          const box = document.createElement('div');
+          box.className = 'box';
+          box.id = product-${id};
+
+          const imgBox = document.createElement('div');
+          imgBox.className = 'img-box';
+          const img = document.createElement('img');
+          img.className = 'images';
+          img.src = image;
+          img.alt = title;
+          imgBox.appendChild(img);
+
+          const bottom = document.createElement('div');
+          bottom.className = 'bottom';
+          const titleElement = document.createElement('p');
+          titleElement.textContent = title;
+          const priceElement = document.createElement('h2');
+          priceElement.textContent = $ ${price}.00;
+          const button = document.createElement('button');
+          button.textContent = 'Add to cart';
+          button.addEventListener('click', () => {
+            addToCart(id);
+          });
+
+          bottom.appendChild(titleElement);
+          bottom.appendChild(priceElement);
+          bottom.appendChild(button);
+
+          box.appendChild(imgBox);
+          box.appendChild(bottom);
+
+          rootElement.appendChild(box);
+        });
+      };
+
+      const addToCart = (productId) => {
+        // Add your logic for adding the product to the cart
+        console.log(Product added to cart: ${productId});
+      };
+
+      const handleSearch = (searchQuery) => {
+        const filteredItems = items.filter((item) => {
+          return item.title.toLowerCase().includes(searchQuery.toLowerCase());
+        });
+        displayItems(filteredItems);
+      };
+
+      document.getElementById('searchBar').addEventListener('input', (e) => {
+        const searchQuery = e.target.value.trim();
+        handleSearch(searchQuery);
+      });
+
+      // Initial display of all products
+      displayItems(items);
+    </script>
+  </body>
+</html>
